@@ -1,4 +1,9 @@
-# Realtime Video Chat Application
+# Realtime Chat Application
+
+
+
+## Introduction
+This is a code repository for the corresponding a React Video Chat Application using WebRTC & Socket.io. 
 
 
 
