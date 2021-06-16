@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 		border: '2px solid black',
 	},
 }));
+
 const Options = ({ children }) => {
 	const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } = useContext(SocketContext);
 	const [idToCall, setIdToCall] = useState('');
@@ -51,7 +52,6 @@ const Options = ({ children }) => {
 								Account Info
 							</Typography>
 							<TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
-							
 							<CopyToClipboard text={me} className={classes.margin}>
 								<Button
 									variant="contained"
