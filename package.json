@@ -1,23 +1,26 @@
 {
-	"name": "webRTC-video-chat",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"keywords": [],
-	"author": "Ahmed Ibrahim",
-	"license": "ISC",
-	"dependencies": {
-		"@material-ui/core": "^4.11.4",
-		"@material-ui/icons": "^4.11.2",
-		"cors": "^2.8.5",
-		"express": "^4.17.1",
-		"react-copy-to-clipboard": "^5.0.3",
-		"simple-peer": "^9.11.0",
-		"socket.io": "^4.1.2",
-		"socket.io-client": "^4.1.2"
-	}
+  "name": "webRTC-video-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedibrahimhassan654/chat-App-with-webRTC-socketIO.git"
+  },
+  "keywords": [],
+  "author": "Ahmed Ibrahim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedibrahimhassan654/chat-App-with-webRTC-socketIO/issues"
+  },
+  "homepage": "https://github.com/ahmedibrahimhassan654/chat-App-with-webRTC-socketIO#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "socket.io": "^4.1.2"
+  }
 }
-
