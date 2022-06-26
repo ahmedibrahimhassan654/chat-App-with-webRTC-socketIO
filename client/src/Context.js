@@ -5,7 +5,7 @@ import Peer from 'simple-peer';
 const SocketContext = createContext();
 
 // const socket = io('http://localhost:5000');
-const socket = io('https://warm-wildwood-81069.herokuapp.com');
+const socket = io('https://myapp-webrtc-socketio.herokuapp.com');
 
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
@@ -18,6 +18,8 @@ const ContextProvider = ({ children }) => {
   const myVideo = useRef();
   const userVideo = useRef();
   const connectionRef = useRef();
+    const userStream = useRef();
+	const senders = useRef([]);
 
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
@@ -80,24 +82,49 @@ const ContextProvider = ({ children }) => {
     window.location.reload();
   };
 
+
+  const shareScreen = () =>
+  {
+  navigator.mediaDevices.getDisplayMedia({ cursor: true }).then((stream) => {
+    let screenTrack = stream.getTracks()[0];
+
+		senders.current.find((sender) => sender.replaceTrack(screenTrack))
+		screenTrack.onended = function () {
+			senders.current.find((sender) => sender.replaceTrack(userStream.current.getTracks()[1]));
+		};
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
   return (
-    <SocketContext.Provider value={{
-      call,
-      callAccepted,
-      myVideo,
-      userVideo,
-      stream,
-      name,
-      setName,
-      callEnded,
-      me,
-      callUser,
-      leaveCall,
-      answerCall,
-    }}
-    >
-      {children}
-    </SocketContext.Provider>
+		<SocketContext.Provider
+			value={{
+				call,
+				callAccepted,
+				myVideo,
+				userVideo,
+				stream,
+				name,
+				setName,
+				callEnded,
+				me,
+				callUser,
+				leaveCall,
+				answerCall,
+				shareScreen,
+			}}
+		>
+			{children}
+		</SocketContext.Provider>
   );
 };
 
